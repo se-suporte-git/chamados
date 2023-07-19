@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chamados Atendidos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Chamados Atendidos</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número do Chamado</th>
+                    <th>Problema Relatado</th>
+                    <th>Resolução</th>
+                    <th>Data da Solução</th>
+                    <th>Tipo de Atendimento</th>
+                    <th>Hora de Início</th>
+                    <th>Hora de Fim</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chamado in chamados %}
+                <tr>
+                    <td>{{ chamado.numero_chamado }}</td>
+                    <td>{{ chamado.problema_relatado }}</td>
+                    <td>{{ chamado.resolucao }}</td>
+                    <td>{{ chamado.data_solucao }}</td>
+                    <td>{{ chamado.tipo_atendimento }}</td>
+                    <td>{{ chamado.hora_inicio }}</td>
+                    <td>{{ chamado.hora_fim }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container mt-5">
+        <h2>Chamados Atendidos</h2>
+        <a href="{% url 'exportar_chamados_csv' %}" class="btn btn-primary">Exportar para CSV</a>
+        <!-- Resto do seu código de exibição dos chamados atendidos -->
+    </div>
+</body>
+<div class="container mt-5">
+    <a href="{% url 'minha_view' %}" class="btn btn-primary">Voltar ao Formulário</a>
+</div>
+</html>
